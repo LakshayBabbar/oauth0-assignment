@@ -37,8 +37,8 @@ export async function createAccessToken(): Promise<string> {
 
         const data: AccessTokenResponse = await response.json();
         return data.access_token;
-    } catch (error) {
-        throw new Error("Failed to get Auth0 management token");
+    } catch (error: any) {
+        throw new Error("Failed to get Auth0 management token " + error.message);
     }
 }
 
